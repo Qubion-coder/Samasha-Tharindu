@@ -44,7 +44,7 @@ export default function Admin() {
 ${generatedUrl}
 
 
-❤️ දනුජ & තානියා` : '';
+❤️ තරිඳු & සමාෂා` : '';
 
   const handleCopyLink = async () => {
     try {

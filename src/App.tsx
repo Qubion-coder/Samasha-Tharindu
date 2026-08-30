@@ -4,27 +4,27 @@ import { Sparkles, MapPin, Calendar, Clock, ChevronDown } from "lucide-react";
 
 const INVITATION = {
   couple: {
-    bride: "තානියා",
-    groom: "දනුජ",
-    brideFull: "තානියා දිල්ශානි",
-    groomFull: "දනුජ තිලක්ෂ",
+    bride: "සමාෂා",
+    groom: "තරිඳු",
+    brideFull: "සමාෂා සෙනරත්න",
+    groomFull: "තරිඳු ප්‍රභාත්",
   },
   date: {
-    displayNumeric: "10 . 09 . 2026",
-    displayLong: "වර්ෂ 2026 ක් වූ සැප්තැම්බර් මස 10 වන දින",
-    countdownTarget: "2026-09-10T10:00:00+05:30",
+    displayNumeric: "23 . 10 . 2026",
+    displayLong: "වර්ෂ 2026 ක් වූ ඔක්තෝබර් මස 23 වන දින",
+    countdownTarget: "2026-10-23T09:00:00+05:30",
   },
   time: {
-    ceremonyStart: "පෙ.ව. 10:00 සිට",
+    ceremonyStart: "පෙ.ව. 09:00 සිට",
     ceremonyEnd: "",
     registration: "",
-    welcome: "පෙ.ව. 10:00",
+    welcome: "පෙ.ව. 09:00",
   },
   venue: {
-    name: "Amagi Aria",
-    city: "මීගමුව",
-    mapQuery: "Amagi Aria, Negombo",
-    googleMapsLink: "https://maps.app.goo.gl/xnA32q4soU627gTTA?g_st=aw",
+    name: "Radisson Blu Resort",
+    city: "ගාල්ල",
+    mapQuery: "Radisson Blu Resort, Galle",
+    googleMapsLink: "https://maps.app.goo.gl/miN6rpzZNhL61byf8",
   },
   rsvpContacts: [
     "Thaniya - +94 71 969 2123",
@@ -34,7 +34,7 @@ const INVITATION = {
 
 const backgroundMusic = "/ssstik.io_1786658505150.mp3";
 const googleScriptUrl =
-  "https://script.google.com/macros/s/AKfycbz_-NXXVg-6YzC2Culu2ir_fc0CcgXGuAXOF0npZPSOsyZNRQWInoM9il-aEjHfFVxW/exec";
+  "https://script.google.com/macros/s/AKfycbyfjpEN4Lb8PglmBtGHEugCG66BDW8-TnLZraU8VGbq50t4aA6FxZ2_OpiKbzxibn8g/exec";
 
 const publicImagePath = (fileName: string) => `/images/${fileName.replaceAll(" ", "%20")}`;
 const preImagePath = (fileName: string) => `/pre/${fileName.replaceAll(" ", "%20")}`;
@@ -261,6 +261,70 @@ function Gallery() {
   );
 }
 
+function Timeline() {
+  const events = [
+    { time: "09:30 AM", title: "පෝරුවේ චාරිත්‍ර", description: "Poruwa Ceremony" },
+    { time: "12:00 PM", title: "දිවා ආහාරය", description: "Lunch Buffet" },
+    { time: "12:30 PM", title: "මංගල උත්සවය", description: "Wedding Reception" },
+    { time: "04:00 PM", title: "පිටත්ව යාම", description: "Going Away" },
+  ];
+
+  return (
+    <section className="relative py-16 md:py-32 flex flex-col items-center bg-[#fcfcfc]" style={{ backgroundImage: 'url("/vintage_paper.png")', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+      <div className="absolute inset-0 bg-white/60 pointer-events-none z-10" />
+      <div className="w-full max-w-4xl px-6 relative z-20 flex flex-col items-center">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16 md:mb-24"
+        >
+          <div className="flex items-center justify-center gap-4 opacity-50 mb-6">
+            <div className="h-px w-12 bg-[#c5a059]" />
+            <Sparkles className="w-5 h-5 text-[#d4af37]" />
+            <div className="h-px w-12 bg-[#c5a059]" />
+          </div>
+          <h2 className="text-4xl md:text-6xl text-[#c5a059] tracking-[0.2em] font-bold">
+            වැඩසටහන
+          </h2>
+        </motion.div>
+
+        <div className="w-full flex flex-col gap-6 md:gap-0 relative before:absolute before:inset-y-0 before:left-[27px] md:before:left-1/2 before:-translate-x-1/2 before:w-px before:bg-gradient-to-b before:from-transparent before:via-[#c5a059]/40 before:to-transparent">
+          {events.map((event, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.2 }}
+              className={`relative flex items-center justify-between md:justify-normal gap-6 md:gap-0 w-full mb-6 md:mb-16 last:mb-0 ${
+                i % 2 === 0 ? "md:flex-row-reverse" : "md:flex-row"
+              }`}
+            >
+              <div className="hidden md:block w-1/2" />
+              
+              <div className="absolute left-7 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-white border-[4px] border-[#c5a059] shadow-[0_0_15px_rgba(197,160,89,0.4)] z-10" />
+
+              <div className={`w-full pl-16 md:pl-0 md:w-1/2 flex flex-col ${
+                i % 2 === 0 ? "md:items-start md:pl-16" : "md:items-end md:pr-16"
+              }`}>
+                <div className="bg-white/80 backdrop-blur-sm p-6 md:p-8 rounded-3xl border border-[#c5a059]/20 shadow-[0_15px_40px_-15px_rgba(197,160,89,0.2)] w-full max-w-[340px] hover:scale-105 transition-transform duration-500">
+                  <div className="text-[#d4af37] font-numeric text-xl md:text-2xl mb-3 font-bold flex items-center gap-3">
+                    <Clock className="w-5 h-5" />
+                    {event.time}
+                  </div>
+                  <h3 className="text-[#c5a059] text-2xl md:text-3xl font-bold mb-2">{event.title}</h3>
+                  <p className="text-[#93763f]/80 text-xs md:text-sm tracking-widest uppercase font-bold">{event.description}</p>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function WeddingInvitation() {
   const [hasStarted, setHasStarted] = useState(false);
   const [isOpened, setIsOpened] = useState(false);
@@ -272,7 +336,7 @@ export default function WeddingInvitation() {
   const guestSuffix = searchParams.get("suffix") || "ඔබට";
 
   const [rsvpForm, setRsvpForm] = useState({
-    name: "",
+    name: guestName || "",
     guests: "1",
   });
 
@@ -606,17 +670,17 @@ export default function WeddingInvitation() {
                       </div>
                     )}
                     <p className="text-slate-700">
-                      එච්. ජයලත් සිල්වා මහතාගේ සහ ජේ. ඒ. උදයන්ගනී ප්‍රියදර්ශිකා මහත්මියගේ ආදරණීය පුත් වන
+                      පියසිරි මහතාගේ සහ දීපා මහත්මියගේ ආදරණීය පුත් වන
                     </p>
                     <h3 className="text-3xl md:text-4xl font-bold text-[#d4af37] my-2">
-                      දනුජ තිලක්ෂ
+                      තරිඳු ප්‍රභාත්
                     </h3>
 
                     <p className="text-slate-700">
-                      කේ. ඒ. ගාමිණී අප්පුහාමි මහතාගේ සහ එම්. ඩී. ආර්. ගීතානි සිල්වා මහත්මියගේ ආදරණීය දියණිය වන
+                      සෙනරත්න මහතාගේ සහ මහත්මියගේ ආදරණීය දියණිය වන
                     </p>
                     <h3 className="text-3xl md:text-4xl font-bold text-[#d4af37] my-2">
-                      තානියා දිල්ශානි
+                      සමාෂා සෙනරත්න
                     </h3>
 
                     <p className="text-slate-700 max-w-2xl mx-auto pt-2">
@@ -787,7 +851,7 @@ export default function WeddingInvitation() {
               </div>
             </section>
 
-            <Gallery />
+            <Timeline />
 
             <section 
               className="relative py-16 md:py-48 flex flex-col items-center overflow-hidden"

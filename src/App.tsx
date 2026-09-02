@@ -6,7 +6,7 @@ const INVITATION = {
   couple: {
     bride: "සමාෂා",
     groom: "තරිඳු",
-    brideFull: "සමාෂා සෙනරත්න",
+    brideFull: "සමාෂා සේනාරත්න",
     groomFull: "තරිඳු ප්‍රභාත්",
   },
   date: {
@@ -677,10 +677,10 @@ export default function WeddingInvitation() {
                     </h3>
 
                     <p className="text-slate-700">
-                      සෙනරත්න මහතාගේ සහ මහත්මියගේ ආදරණීය දියණිය වන
+                      සේනාරත්න මහතාගේ සහ මහත්මියගේ ආදරණීය දියණිය වන
                     </p>
                     <h3 className="text-3xl md:text-4xl font-bold text-[#d4af37] my-2">
-                      සමාෂා සෙනරත්න
+                      සමාෂා සේනාරත්න
                     </h3>
 
                     <p className="text-slate-700 max-w-2xl mx-auto pt-2">
@@ -743,24 +743,24 @@ export default function WeddingInvitation() {
                         </div>
                       </div>
 
-                      <div className="flex items-start gap-4">
-                        <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center shrink-0 border border-[#c5a059]/20 shadow-inner">
-                          <MapPin className="w-5 h-5 text-[#c5a059]" />
+                      <div className="flex items-start gap-4 mt-4 pt-6 border-t border-[#c5a059]/20 relative">
+                        <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-gradient-to-br from-[#d4af37]/20 to-[#c5a059]/10 flex items-center justify-center shrink-0 border border-[#d4af37]/40 shadow-[0_0_20px_rgba(212,175,55,0.2)]">
+                          <MapPin className="w-6 h-6 md:w-7 md:h-7 text-[#d4af37] animate-bounce" style={{ animationDuration: '2s' }} />
                         </div>
-                        <div className="pt-1">
-                          <div className="text-xs md:text-[11px] tracking-[0.5em] font-bold text-[#c5a059]/50 mb-1">
+                        <div className="pt-1 w-full">
+                          <div className="text-xs md:text-sm tracking-[0.6em] font-bold text-[#c5a059] mb-2">
                             ස්ථානය
                           </div>
-                          <div className="text-base md:text-lg text-[#c5a059] tracking-wide font-bold">
+                          <div className="text-xl md:text-2xl text-[#d4af37] tracking-wider font-bold mb-4 drop-shadow-sm">
                             {INVITATION.venue.name}, {INVITATION.venue.city}
                           </div>
                           <a
                             href={INVITATION.venue.googleMapsLink}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="mt-2 inline-flex text-[10px] md:text-xs text-[#d4af37] hover:text-[#93763f] font-bold tracking-widest uppercase border-b border-[#d4af37]/30 hover:border-[#93763f] transition-colors pb-0.5"
+                            className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#d4af37]/10 text-xs md:text-sm text-[#d4af37] hover:bg-[#d4af37]/20 hover:text-[#93763f] font-bold tracking-widest uppercase rounded-full border border-[#d4af37]/30 hover:border-[#93763f] transition-all"
                           >
-                            View on Google Maps
+                            <MapPin className="w-3.5 h-3.5" /> View on Google Maps
                           </a>
                         </div>
                       </div>
